@@ -18,7 +18,7 @@ jobs:
       fail-fast: false
       matrix:
         configuration: [Release, Release-EOS]
-        platform: [Win32, x64]
+        platform: [x86, x64]
     
     steps:
     - name: Checkout code
@@ -35,6 +35,8 @@ jobs:
       with:
         name: EasyAntiCheat-${{ matrix.configuration }}-${{ matrix.platform }}
         path: |
-          ${{ matrix.platform }}/${{ matrix.configuration }}/*.dll
-          ${{ matrix.platform }}/${{ matrix.configuration }}/*.pdb
+          x64/${{ matrix.configuration }}/*.dll
+          x64/${{ matrix.configuration }}/*.pdb
+          Win32/${{ matrix.configuration }}/*.dll
+          Win32/${{ matrix.configuration }}/*.pdb
         if-no-files-found: warn
