@@ -219,6 +219,8 @@ IGameClientBase g_client;
 
 IClientAuth g_client_auth;
 
+IGameLauncher g_launcher;
+
 extern "C" PVOID CreateGameClient( const char* interfaceName ) {
 
     LOG( "Returning faux game client interface" );
@@ -231,6 +233,13 @@ extern "C" PVOID CreateClientAuth(const char* interfaceName) {
     LOG("Returning faux game client auth interface");
 
     return &g_client_auth;
+}
+
+extern "C" PVOID CreateGameLauncher(const char* interfaceName) {
+
+    LOG("Returning faux game launcher interface");
+
+    return &g_launcher;
 }
 #endif
 

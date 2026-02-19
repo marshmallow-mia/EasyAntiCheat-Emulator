@@ -79,3 +79,16 @@ bool IClientAuth::GetAuthTicket(void* authInfo, char* szAuthTicketBuffer)
 
     return true;
 }
+
+void IGameLauncher::Initialize(void* progressFunc, void* initFunc, void* a3)
+{
+    OutputDebugStringA("Call to GameLauncher->Initialize");
+
+    if (initFunc)
+        ((void(*)(EACAsyncResult result, const char* szMessage, void* pCallbackParameter))initFunc)(InitSuccess, nullptr, a3);
+}
+
+void IGameLauncher::Destroy()
+{
+    OutputDebugStringA("Call to GameLauncher->Destroy");
+}
