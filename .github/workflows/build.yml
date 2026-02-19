@@ -28,7 +28,7 @@ jobs:
       uses: microsoft/setup-msbuild@v2
     
     - name: Build
-      run: msbuild EasyAntiCheat.sln /p:Configuration=${{ matrix.configuration }} /p:Platform=${{ matrix.platform == 'x86' && 'Win32' || matrix.platform }} /p:WindowsTargetPlatformVersion=10.0 /m
+      run: msbuild EasyAntiCheat.sln /p:Configuration=${{ matrix.configuration }} /p:Platform=${{ matrix.platform }} /p:WindowsTargetPlatformVersion=10.0 /m
     
     - name: Upload artifacts
       uses: actions/upload-artifact@v4
