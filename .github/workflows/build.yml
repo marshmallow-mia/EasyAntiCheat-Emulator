@@ -35,8 +35,6 @@ jobs:
       with:
         name: EasyAntiCheat-${{ matrix.configuration }}-${{ matrix.platform }}
         path: |
-          x64/${{ matrix.configuration }}/*.dll
-          x64/${{ matrix.configuration }}/*.pdb
-          Win32/${{ matrix.configuration }}/*.dll
-          Win32/${{ matrix.configuration }}/*.pdb
+          ${{ matrix.platform == 'x86' && 'Win32' || matrix.platform }}/${{ matrix.configuration }}/*.dll
+          ${{ matrix.platform == 'x86' && 'Win32' || matrix.platform }}/${{ matrix.configuration }}/*.pdb
         if-no-files-found: warn
