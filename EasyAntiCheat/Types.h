@@ -59,6 +59,13 @@ public:
     virtual bool GetAuthTicket(void * authInfo, char * szAuthTicketBuffer); // 0x18-0x20
 };
 
+/* Game Launcher Interface */
+class IGameLauncher {
+public:
+    virtual void Initialize(void* progressFunc, void* initFunc, void* a3); // 0x0-0x8
+    virtual void Destroy(); // 0x8-0x10
+};
+
 /* 749 */
 enum InitProgressResult {
     InitContinue = 0x0,
